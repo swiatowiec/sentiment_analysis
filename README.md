@@ -18,4 +18,3 @@ use req.txt file to install required packages
 
 ## HOW TO IMPROVE
 code refactor, eventually there should be separate modules for preprocessing, modeling and for some EDA.
-
