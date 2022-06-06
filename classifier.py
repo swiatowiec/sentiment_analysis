@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix,classification_report
 
 df = pd.read_csv('data/Data_tweets.csv', header=None, names=['polarity', 'id', 'date', 'query', 'user', 'text'])
 TRAIN_TEST_PROP = 0.8
@@ -31,3 +32,9 @@ y_train = train['polarity']
 y_test = test['polarity']
 
 lr.fit(X_train,y_train)
+
+# EVALUATING
+predictions = lr.predict(X_test)
+confusion_matrix(predictions,y_test)
+
+print(classification_report(predictions,y_test))
